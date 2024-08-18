@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>SRCTF wp</title>
+      <link href="/2024/08/18/SRCTF/"/>
+      <url>/2024/08/18/SRCTF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="WEB"><a href="#WEB" class="headerlink" title="WEB"></a>WEB</h1><h2 id="ezhttp"><a href="#ezhttp" class="headerlink" title="ezhttp"></a>ezhttp</h2><p>考察简单的http请求头知识，具体要求为get传入参数flag&#x3D;1，post传入参数flag&#x3D;1;<br>伪造本地ip的时候可以利用burpsuite爆破，题目下面会附上字典，这里用的是Client-IP:127.0.0.1<br>接着题目提示加入User-Agent: Android和Referer:zzz.mihoyo.com<br>接着是一个新的知识点，如下图<br><img src="/2024/08/18/SRCTF/1.png" alt="图片"></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">isset(<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_AAA&#x27;</span>]);</span><br><span class="line">//<span class="variable">$_SERVER</span>是一个超全局数组，包含了请求头和服务器信息等信息</span><br><span class="line">//<span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_AAA&#x27;</span>]代表了http请求中名为AAA头的值</span><br></pre></td></tr></table></figure><p>根据以上分析，我们只需在请求中添加名为AAA的请求头即可<img src="/2024/08/18/SRCTF/2.png" alt="在这里插入图片描述"></p><p>接着根据提示加上Cookie:xxx&#x3D;1，即可得到flag<br><img src="/2024/08/18/SRCTF/3.png" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> SRCTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2024/08/18/hello-world/"/>
       <url>/2024/08/18/hello-world/</url>
